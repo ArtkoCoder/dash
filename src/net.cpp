@@ -1419,7 +1419,7 @@ void ThreadDNSAddressSeed()
 
     LogPrintf("Loading addresses from DNS seeds (could take a while)\n");
 
-    BOOST_FOREACH(const CDNSSeedData &seed, vSeeds) {
+    /*BOOST_FOREACH(const CDNSSeedData &seed, vSeeds) {
         if (HaveNameProxy()) {
             AddOneShot(seed.host);
         } else {
@@ -1438,7 +1438,9 @@ void ThreadDNSAddressSeed()
             }
             addrman.Add(vAdd, CNetAddr(seed.name, true));
         }
-    }
+    }*/
+
+    addrman.Add(convertSeed6(Params().FixedSeeds()), CNetAddr("127.0.0.1"));
 
     LogPrintf("%d addresses found from DNS seeds\n", found);
 }

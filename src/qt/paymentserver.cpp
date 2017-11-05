@@ -240,7 +240,7 @@ void PaymentServer::ipcParseCommandLine(int argc, char* argv[])
             PaymentRequestPlus request;
             if (readPaymentRequestFromFile(arg, request))
             {
-                if (request.getDetails().network() == "main")
+                if (request.getDetails().network() == "vs_main")
                 {
                     SelectParams(CBaseChainParams::MAIN);
                 }

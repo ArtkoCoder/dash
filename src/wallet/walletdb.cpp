@@ -1064,7 +1064,7 @@ bool CWalletDB::Recover(CDBEnv& dbenv, const std::string& filename, bool fOnlyKe
     boost::scoped_ptr<Db> pdbCopy(new Db(dbenv.dbenv, 0));
     int ret = pdbCopy->open(NULL,               // Txn pointer
                             filename.c_str(),   // Filename
-                            "main",             // Logical db name
+                            "vs_main",          // Logical db name
                             DB_BTREE,           // Database type
                             DB_CREATE,          // Flags
                             0);

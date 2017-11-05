@@ -10,7 +10,7 @@
 
 #include <assert.h>
 
-const std::string CBaseChainParams::MAIN = "main";
+const std::string CBaseChainParams::MAIN = "vs_main";
 const std::string CBaseChainParams::TESTNET = "test";
 const std::string CBaseChainParams::REGTEST = "regtest";
 

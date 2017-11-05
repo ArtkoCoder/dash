@@ -256,11 +256,11 @@ CDB::CDB(const std::string& strFilename, const char* pszMode, bool fFlushOnClose
                     throw runtime_error(strprintf("CDB: Failed to configure for no temp file backing for database %s", strFile));
             }
 
-            ret = pdb->open(NULL,                               // Txn pointer
-                            fMockDb ? NULL : strFile.c_str(),   // Filename
-                            fMockDb ? strFile.c_str() : "main", // Logical db name
-                            DB_BTREE,                           // Database type
-                            nFlags,                             // Flags
+            ret = pdb->open(NULL,                                  // Txn pointer
+                            fMockDb ? NULL : strFile.c_str(),      // Filename
+                            fMockDb ? strFile.c_str() : "vs_main", // Logical db name
+                            DB_BTREE,                              // Database type
+                            nFlags,                                // Flags
                             0);
 
             if (ret != 0) {
@@ -357,7 +357,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
 
                     int ret = pdbCopy->open(NULL,               // Txn pointer
                                             strFileRes.c_str(), // Filename
-                                            "main",             // Logical db name
+                                            "vs_main",          // Logical db name
                                             DB_BTREE,           // Database type
                                             DB_CREATE,          // Flags
                                             0);
