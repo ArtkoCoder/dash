@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  ubuntu:
+    build: docker/ubuntu-14
+    expose:
+      - 19999
+    ports:
+      - 19999:19999
+    volumes:
+      - ./:/dash
+    tty: true
